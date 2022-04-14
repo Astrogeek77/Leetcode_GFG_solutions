@@ -13,7 +13,7 @@ public:
             {
                 if(j != (i+1) && nums[j] == nums[j-1]) continue;
                 
-                int rem=target-(nums[i]+nums[j]);
+                int rem = target - (nums[i] + nums[j]);
                 int lo = j + 1, hi = n - 1;
                 
                 while(lo < hi)
