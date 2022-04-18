@@ -1,25 +1,37 @@
 class Solution
 {
 public:
+    unordered_map<int, int> map;
+    vector<int> temp;
+    
     void func(int i, vector<int> &nums, vector<vector<int>> &ans)
     {
         if (i == nums.size())
         {
-            ans.push_back(nums);
+            ans.push_back(temp);
             return;
         }
-        for (int j = i; j < nums.size(); j++)
+        for (auto k : map)
         {
-            swap(nums[i], nums[j]);
+            int key = k.first;
+            int value = k.second;
+            
+            if(value == 0) continue;   
+            temp.push_back(key);
+            map[key]--;
+            
             func(i + 1, nums, ans);
-            swap(nums[i], nums[j]);
+            
+            temp.pop_back();
+            map[key]++;
         }
     }
 
     vector<vector<int>> permute(vector<int> &nums)
     {
         vector<vector<int>> ans;
-        vector<int> a;
+        for(auto x: nums) map[x]++;
+        
         func(0, nums, ans);
         return ans;
     }
