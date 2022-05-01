@@ -7,6 +7,7 @@ using namespace std;
 //User function template for C++
 class Solution{
 public:	
+
     bool checkPrime(int n){
         for(int i = 2; i <= sqrt(n); i++){
             if(n % i == 0) return false;
@@ -14,6 +15,7 @@ public:
         return true;
     }
 	
+	// n <= 4 cant be super primes, thus we return 0 for them
 	int superPrimes(int n)
 	{
 	   int count = 0;
