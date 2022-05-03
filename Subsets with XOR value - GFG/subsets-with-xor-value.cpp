@@ -7,17 +7,18 @@ using namespace std;
 
 class Solution{
 public:
-   int solve(vector<int> &arr , int N , int K){
-       if(N == 0){
-           return K == 0;
-       }
-       int take = solve(arr , N - 1 , K ^ arr[N - 1]);
-       int leave = solve(arr , N - 1 , K);
-       return take + leave;
+   int helper(vector<int> &arr , int N , int K){
+       if(N == 0) return K == 0;
+       
+       int pick, npick;
+       pick = helper(arr , N - 1 , K ^ arr[N - 1]); // pick
+       npick = helper(arr , N - 1 , K); // not pick
+       return pick + npick;
    }
-   int subsetXOR(vector<int> &arr, int N, int K) {
-       // code here
-       return solve(arr , N , K);
+   
+   int subsetXOR(vector<int> &arr, int N, int K) 
+   {
+       return helper(arr , N , K);
    }
 };
 
