@@ -13,7 +13,7 @@ public:
             v.push_back(s);
             return;
         }
-        dfs(v, S, i+1, n, s+S[i]+" ");
+        dfs(v, S, i+1, n, s+S[i]+' ');
         dfs(v, S, i+1, n, s+S[i]);
     }
     
