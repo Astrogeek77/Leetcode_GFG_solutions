@@ -1,0 +1,1 @@
+https://leetcode.com/problems/construct-target-array-with-multiple-sums/discuss/2189338/C%2B%2B-oror-Simple-Code-oror-Full-Explanation
