@@ -5,17 +5,21 @@ public:
         
     }
     
-    void push(int x) {
+    void push(int x) 
+    {
         int n = queue.size();
         queue.push(x);
-        while(n-->0){
+        while(n-->0)
+        {
             queue.push(queue.front());
             queue.pop();
         }
     }
     
-    int pop() {
-        if(!queue.empty()){
+    int pop() 
+    {
+        if(!queue.empty())
+        {
             int top = queue.front();
             queue.pop();
             return top;
