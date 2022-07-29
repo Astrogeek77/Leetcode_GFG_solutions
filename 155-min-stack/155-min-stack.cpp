@@ -1,39 +1,75 @@
 class MinStack
 {
-    stack<int> s;
-    stack<int> ss;
+    stack<long long> s;
+    long long minEle;
+    
     public:
         MinStack() {}
 
     /*returns min element from stack*/
-    int getMin()
+    long long getMin()
     {
-        if (ss.size() == 0) return -1;
-        return ss.top();
+        if (s.size() == 0) return -1;
+        return minEle;
     }
 
     /*returns poped element from stack*/
-    int pop()
+    long long pop()
     {
         if (s.size() == 0) return -1;
-
-        int ans = s.top();
-        s.pop();
-        if (ans == ss.top()) ss.pop();
-        return ans;
+        else
+        {
+            if (s.top() >= minEle)
+            {
+                long long ans = s.top();
+                s.pop();
+                return ans;
+            }
+            else
+            {
+                long long ans = minEle;
+                minEle = ((long long)(2 *minEle) - s.top());
+                s.pop();
+                return ans;
+            }
+        }
     }
 
     /*push element x into the stack*/
-    void push(int x)
+    void push(long long x)
     {
-        s.push(x);
-        if (ss.size() == 0 or x <= ss.top()) ss.push(x);
-        return;
+        if (s.size() == 0)
+        {
+            s.push(x);
+            minEle = x;
+        }
+        else
+        {
+            if (x >= minEle) s.push(x);
+            else
+            {
+                s.push((long long)(2 *x) - minEle);
+                minEle = x;
+            }
+        }
     }
 
-    int top()
+    long long top()
     {
-        return s.top();
+        if (s.size() == 0) return -1;
+        else
+        {
+            if (s.top() >= minEle)
+            {
+                long long ans = s.top();
+                return ans;
+            }
+            else
+            {
+                long long ans = minEle;
+                return ans;
+            }
+        }
     }
 };
 
