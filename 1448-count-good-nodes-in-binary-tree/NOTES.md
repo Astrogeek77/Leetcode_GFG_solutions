@@ -1,1 +1,1 @@
-​
+https://leetcode.com/problems/count-good-nodes-in-binary-tree/discuss/2512547/C%2B%2B-or-Python-or-C97-DFSDetailed-graph-explantion-or-Beginner-friendly-or-Easy-to-understand-_
