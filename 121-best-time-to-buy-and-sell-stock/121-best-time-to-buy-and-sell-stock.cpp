@@ -7,14 +7,13 @@ class Solution
             int min_cp = INT_MAX;
             int profit = INT_MIN;
 
-            for (int i = 0; i < a.size(); i++)
+           	// logic 
+            for (auto x: a)
             {
-               	//logic
-                if (a[i] < min_cp)
-                    min_cp = a[i];
-
-                if (a[i] - min_cp > profit)
-                    profit = a[i] - min_cp;
+               	// if (x < min_cp) min_cp = x;
+                min_cp = min(x, min_cp);
+               	// if (x - min_cp > profit) profit = x - min_cp;
+                profit = max(x - min_cp, profit);
             }
 
             return profit;
