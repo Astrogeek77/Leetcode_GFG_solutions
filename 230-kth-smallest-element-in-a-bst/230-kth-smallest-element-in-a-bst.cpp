@@ -35,8 +35,7 @@ public:
         if (!curr->left)
         {
             count++;
-            if (count == k)
-                ans = curr->val;
+            if (count == k) ans = curr->val;
             curr = curr->right;
         }
         else
