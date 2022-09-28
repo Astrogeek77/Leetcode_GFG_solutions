@@ -5,17 +5,17 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<pre><strong>Input:</strong> nums = [-1,0,3,5,9,12], target = 9
+<pre style="position: relative;"><strong>Input:</strong> nums = [-1,0,3,5,9,12], target = 9
 <strong>Output:</strong> 4
 <strong>Explanation:</strong> 9 exists in nums and its index is 4
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong>Example 2:</strong></p>
 
-<pre><strong>Input:</strong> nums = [-1,0,3,5,9,12], target = 2
+<pre style="position: relative;"><strong>Input:</strong> nums = [-1,0,3,5,9,12], target = 2
 <strong>Output:</strong> -1
 <strong>Explanation:</strong> 2 does not exist in nums so return -1
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
