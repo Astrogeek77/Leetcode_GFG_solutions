@@ -1,7 +1,6 @@
 # Course Schedule
-## Medium 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">There are a total of <strong>n</strong> tasks you have to pick, labeled from 0 to n-1. Some tasks may have <strong>prerequisites </strong>tasks, for example to pick task 0 you have to first finish tasks 1, which is expressed as a pair: [0, 1]<br>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">There are a total of <strong>n</strong> tasks you have to pick, labeled from 0 to n-1. Some tasks may have <strong>prerequisites </strong>tasks, for example to pick task 0 you have to first finish tasks 1, which is expressed as a pair: [0, 1]<br>
 Given the total number of <strong>n</strong> tasks and a list of prerequisite pairs of size <strong>m</strong>. Find a ordering of tasks you should pick to finish all tasks.</span><br>
 <span style="font-size:18px"><strong>Note: </strong>There may be multiple correct orders, you just need to return one of them. If it is impossible to finish all tasks, return an empty array. Returning any correct order will give the output as <strong>1</strong>, whereas any invalid order will give the output <strong>0.</strong> </span></p>
 
@@ -59,5 +58,4 @@ All prerequisite pairs are unique</span></div>
 <p><br>
 <span style="font-size:18px"><strong>Expected Time Complexity:&nbsp;</strong>O(n+m).<br>
 <strong>Expected Auxiliary Space:&nbsp;</strong>O(n+m).</span></p>
- <p></p>
-            </div>
+</div>
