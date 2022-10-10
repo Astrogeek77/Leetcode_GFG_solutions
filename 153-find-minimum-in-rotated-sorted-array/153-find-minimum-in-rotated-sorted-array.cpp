@@ -5,14 +5,12 @@ class Solution
         {
             int lo = 0, hi = num.size() - 1;
 
-            while (lo < hi)
+            while (lo <= hi)
             {
-                if (num[lo] < num[hi]) return num[lo];
-
-                int mid = lo + (hi - lo) / 2;
-
-                if (num[mid] >= num[lo]) lo = mid + 1;
-                else hi = mid;
+                int mid = (lo + hi) / 2;
+                if (num[mid] < num[hi]) hi = mid;
+                else if (num[mid] > num[hi]) lo = mid + 1;
+                else hi--;
             }
 
             return num[lo];
