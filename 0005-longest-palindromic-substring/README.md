@@ -5,16 +5,16 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> s = "babad"
+<pre style="position: relative;"><strong>Input:</strong> s = "babad"
 <strong>Output:</strong> "bab"
 <strong>Explanation:</strong> "aba" is also a valid answer.
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre><strong>Input:</strong> s = "cbbd"
+<pre style="position: relative;"><strong>Input:</strong> s = "cbbd"
 <strong>Output:</strong> "bb"
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
