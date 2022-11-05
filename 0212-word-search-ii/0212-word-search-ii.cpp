@@ -16,6 +16,7 @@ class Solution
     };
 
     public:
+    // find words using dfs
     vector<string> findWords(vector<vector < char>> &board, vector< string > &words)
     {
         TrieNode *root = buildTrie(words);
@@ -54,6 +55,7 @@ class Solution
 
     void dfs(vector<vector < char>> &board, int i, int j, TrieNode *p, vector< string > &result)
     {
+        // for each char find suitable words available in the board.
         char c = board[i][j];
         if (c == '#' || !p->children[c - 'a']) return;
         
@@ -65,10 +67,29 @@ class Solution
         }
 
         board[i][j] = '#';
-        if (i > 0) dfs(board, i - 1, j, p, result);
-        if (j > 0) dfs(board, i, j - 1, p, result);
-        if (i < board.size() - 1) dfs(board, i + 1, j, p, result);
-        if (j < board[0].size() - 1) dfs(board, i, j + 1, p, result);
+        
+        int dx[] = {-1, 0,1, 0};
+        int dy[] = {0, -1, 0, 1};
+        
+        for(int k = 0; k < 4; k++)
+        {
+            int di = i + dx[k];
+            int dj = j + dy[k];
+            
+            if(di >= 0 and di <= board.size() - 1 and dj >= 0 and dj <= board[0].size() - 1)
+            {
+                dfs(board, di, dj, p, result);
+            }
+        }
+        
+        // // up
+        // if (i > 0) dfs(board, i - 1, j, p, result);
+        // // left
+        // if (j > 0) dfs(board, i, j - 1, p, result);
+        // // down
+        // if (i < board.size() - 1) dfs(board, i + 1, j, p, result);
+        // // right
+        // if (j < board[0].size() - 1) dfs(board, i, j + 1, p, result);
         board[i][j] = c;
     }
 };
