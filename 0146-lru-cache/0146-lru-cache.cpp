@@ -1,93 +1,126 @@
-class node {
+class LRUCache
+{
     public:
+    // node class to define a DLL node
+    class node
+    {
+        public:
         int key;
         int val;
         node * next;
         node * prev;
-    node(int _key, int _val) {
-        key = _key;
-        val = _val;
-        next = nullptr ; 
-        prev = nullptr ; 
-    }
-};
-
-class LRUCache {
-public:
-
-    int capacity ;
-    // unordered_map < int, node * > map ; 
-    vector<node*> map ; // (10009 , nullptr ) ; 
-    //map < int, node * > map ; 
-    node * head ;
-    node * tail ;
-    int size  ; 
-    LRUCache(int cap) {
-        capacity = cap ;
-        head = new node(-1, -1);
-        tail = new node(-1, -1);
-        head -> next = tail;
-        tail -> prev = head;
-        size = 0 ; 
-        map = vector<node*>  (10009 , nullptr ) ; 
-    }
-    
-    int get(int key) {
-
-        if (map[key]!=nullptr ) {
-            node * resnode = map[key] ; 
-            int res = resnode -> val;
-            //map.erase(key);
-            //map.erase(map.begin() + key);
-            map[key] = nullptr ; 
-            deletenode(resnode);
-            addnode(new node(key , res ));
-            map[key] = head -> next;
-            return res;
-
+        node(int _key, int _val)
+        {
+            key = _key;
+            val = _val;
+            next = nullptr;
+            prev = nullptr;
         }
+    };
 
-        return -1;
+    // required utilities
+    int cap, size;
+    node *head = new node(-1, -1);
+    node *tail = new node(-1, -1);
+    
+    // unordered_map<int, node *> map;
+    vector<node*> map;
+
+    // initial values and creation of a two node DLL. head -> tail <=> head <- tail
+    LRUCache(int capacity)
+    {
+        cap = capacity;
+        size = 0;
+        head->next = tail;
+        tail->prev = head;
+        
+        map = vector<node *> (10009, nullptr);
     }
     
-      void put(int key, int value) {
-            if (map[key]!=nullptr ) {
-              node * existingnode = map[key];
-              //map.erase(key);
-              //map.erase(map.begin() + key);
-              map[key] = nullptr ; 
-              deletenode(existingnode);
-            }
-            if (size == capacity) {
-              // this will be least recently used node  
-              //map.erase(map.begin() + (tail -> prev -> key) );
-              map[tail -> prev -> key] = nullptr ;   
-              deletenode(tail -> prev);
-              
-            }
-
-            addnode(new node(key, value));
-            map[key] = head -> next;
-            
-      }
-
-    void addnode(node * newnode) {
-        size++ ; 
-        node * temp = head -> next;
-        newnode -> next = temp;
-        newnode -> prev = head;
-        head -> next = newnode;
-        temp -> prev = newnode;
+    // utility function to add new node just after the head node.
+    void addnode(node* newnode)
+    {
+        // node *temp = new node(-1, -1);
+        node *temp = head->next;
+        newnode->next = temp;
+        newnode->prev = head;
+        head->next = newnode;
+        temp->prev = newnode;
+        
+        size++;
+    }
+    
+    // utility function to delete a node
+    void deletenode(node* delnode)
+    {
+        node *delprev = delnode->prev;
+        node *delnext = delnode->next;
+        delprev->next = delnext;
+        delnext->prev = delprev;
+        // delete delnode;
+        
+        size--;
     }
 
-    void deletenode(node * delnode) {
-        size -- ; 
-        node * delprev = delnode -> prev;
-        node * delnext = delnode -> next;
-        delprev -> next = delnext;
-        delnext -> prev = delprev;
-        delnode-> next = nullptr ; 
-        delnode -> prev = nullptr ; 
-        delete delnode ; 
+    int get(int key) 
+    {
+        // we check if the key exists in the map or not.
+        
+        // if(map.find(key) == map.end()) return -1;
+        if(map[key] == nullptr) return -1; 
+        
+        // we get the node corresponding to key, delete it and add it again as most recent node.
+        node *curr = map[key];
+        int val = curr->val;
+        
+        // map.erase(key);
+        map[key] = nullptr;
+        
+        deletenode(curr);
+        addnode(new node(key, val));
+        
+        
+        // map[key] = NULL;
+        
+        // change the node in the map.        
+        map[key] = head->next;
+        // return node val;
+        return val;
+    }
+
+    void put(int key, int value) 
+    {
+        // check if the node with the key previously exists
+        // if does delete the node.
+        
+        
+        // if(map.find(key) != map.end())
+        if(map[key] != nullptr)
+        {
+            node *curr = map[key];
+            // map.erase(key);
+            map[key] = nullptr;
+            deletenode(curr);
+        }
+        
+        // if the capacity is full, delete the least recently used node i.e tail->prev
+        if(size == cap)
+        {
+            // map.erase(tail->prev->key);
+            map[tail->prev->key] = nullptr;
+            deletenode(tail->prev);
+        }
+        
+        // add new node with the new value as most recent node.
+        node *newnode = new node(key, value);
+        addnode(newnode);
+        map[key] = head->next;
     }
 };
+
+/**
+ *Your LRUCache object will be instantiated and called as such:
+ *LRUCache* obj = new LRUCache(capacity);
+ *int param_1 = obj->get(key);
+ *obj->put(key,value);
+ */
