@@ -46,9 +46,11 @@ class Skiplist
 
     void add(int num)
     {
+        // vector to keep track of insertion points
         insertionPoints.clear();
         node *curr = head;
 
+        // find a place to insert node and store the insertion points.
         while (curr)
         {
             while (curr->next and curr->next->val < num) curr = curr->next;
@@ -59,6 +61,7 @@ class Skiplist
         node *downNode = nullptr;
         bool insertUp = true;
 
+        
         while (insertUp and insertionPoints.size() > 0)
         {
             node *dummy = insertionPoints.back();
@@ -81,10 +84,12 @@ class Skiplist
         bool seen = false;
         while (curr)
         {
+            //search the node through the lanes
             while (curr->next and curr->next->val < num) curr = curr->next;
             if (!curr->next or curr->next->val > num) curr = curr->down;
             else
             {
+                // if found seen -> true and manipulate the pointors
                 seen = true;
                 curr->next = curr->next->next;
                 curr = curr->down;
