@@ -1,30 +1,32 @@
-class RandomizedSet {
-public:
+class RandomizedSet
+{
+    public:
     vector<int> arr;
     unordered_map<int, int> set;
-    RandomizedSet() 
+    RandomizedSet()
     {
-        // set and arr are already intialized to 0
+       	// set and arr are already intialized to 0
     }
-    
-    bool insert(int val) 
+
+    bool insert(int val)
     {
-        if(set.find(val) == set.end())
+        if (set.find(val) == set.end())
         {
             arr.push_back(val);
-            set.insert({val, arr.size() - 1});
-            return true; 
+            set.insert({ val,
+                arr.size() - 1 });
+            return true;
         }
         return false;
     }
-    
-    bool remove(int val) 
+
+    bool remove(int val)
     {
-        if(set.find(val) != set.end())
+        if (set.find(val) != set.end())
         {
             int last = arr.back();
             arr[set[val]] = arr.back();
-            
+
             arr.pop_back();
             set[last] = set[val];
             set.erase(val);
@@ -32,18 +34,18 @@ public:
         }
         return false;
     }
-    
-    int getRandom() 
+
+    int getRandom()
     {
-        int random = rand() % arr.size() ;
-        return arr[random];        
+        int random = rand() % arr.size();
+        return arr[random];
     }
 };
 
 /**
- * Your RandomizedSet object will be instantiated and called as such:
- * RandomizedSet* obj = new RandomizedSet();
- * bool param_1 = obj->insert(val);
- * bool param_2 = obj->remove(val);
- * int param_3 = obj->getRandom();
+ *Your RandomizedSet object will be instantiated and called as such:
+ *RandomizedSet* obj = new RandomizedSet();
+ *bool param_1 = obj->insert(val);
+ *bool param_2 = obj->remove(val);
+ *int param_3 = obj->getRandom();
  */
