@@ -14,8 +14,7 @@ class Solution
             priority_queue<pair<int, char>> pq;
             for (auto it: mp)
             {
-                pq.push({ it.second,
-                    it.first });
+                pq.push({ it.second, it.first });
             }
             
             // add to string while poping from top of pq
