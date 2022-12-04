@@ -10,19 +10,23 @@ class Solution
         {
             unordered_map<string, int> mp;
             vector<pair<string, int>> v;
+            
+            // frquency of words
             for (int i = 0; i < words.size(); i++) mp[words[i]]++;
+            // push to vector to sort according to frequency
+            for (auto &x: mp) v.push_back(x);
 
-            for (auto &i: mp) v.push_back(i);
-
+            // sort using custom comparator
             sort(v.begin(), v.end(), cmp);
 
-            int x = 0;
+            int idx = 0;
             vector<string> ans(k);
 
-            for (auto &i: v)
+            // top k frequent strings/words is our answer
+            for (auto &x: v)
             {
-                ans[x++] = i.first;
-                if (k == x) break;
+                ans[idx++] = x.first;
+                if (k == idx) break;
             }
 
             return ans;
