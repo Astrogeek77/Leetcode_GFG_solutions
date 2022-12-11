@@ -14,7 +14,7 @@ class Solution
     int ans = INT_MIN;
     int helper(TreeNode *node)
     {
-        if (node == NULL) return 0;
+        if (node == nullptr) return 0;
         
         int leftTreeSum = max(0, helper(node->left));
         int rightTreeSum = max(0, helper(node->right));
