@@ -1,23 +1,25 @@
 class Solution
 {
     public:
-        int minFallingPathSumHelper(vector<vector < int>> &matrix, int r, int c, vector< vector< int>> &dp)
+        int minFallingPathSum(vector<vector < int>> &matrix)
         {
-            if (r == matrix.size() - 1 and c < matrix[0].size() and c >= 0) return matrix[r][c];
-            if (c >= matrix[0].size() or c < 0) return INT_MAX;
-
-            if (dp[r][c] != INT_MAX) return dp[r][c];
-            return dp[r][c] = matrix[r][c] + min(min(minFallingPathSumHelper(matrix, r + 1, c - 1, dp), minFallingPathSumHelper(matrix, r + 1, c, dp)), minFallingPathSumHelper(matrix, r + 1, c + 1, dp));
+            int rows = matrix.size();
+            int cols = matrix.size();
+            for (int i = 1; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    int rowUp = matrix[i - 1][j];
+                    int leftUp = j > 0 ? matrix[i - 1][j - 1] : INT_MAX;
+                    int rightUp = j < cols - 1 ? matrix[i - 1][j + 1] : INT_MAX;
+                    matrix[i][j] += min(rowUp, min(leftUp, rightUp));
+                }
+            }
+            int answer = INT_MAX;
+            for (int j = 0; j < cols; j++)
+            {
+                answer = min(answer, matrix[rows - 1][j]);
+            }
+            return answer;
         }
-    int minFallingPathSum(vector<vector < int>> &matrix)
-    {
-        int rows = matrix.size(), cols = matrix[0].size();
-        vector<vector < int>> dp(rows + 1, vector<int> (cols + 1, INT_MAX));
-        int ans = INT_MAX;
-        for (int c = 0; c < cols; c++)
-        {
-            ans = min(ans, minFallingPathSumHelper(matrix, 0, c, dp));
-        }
-        return ans;
-    }
 };
