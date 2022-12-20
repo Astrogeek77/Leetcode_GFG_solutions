@@ -1,18 +1,18 @@
 class Solution
 {
     public:
-        void dfs(int i, vector<vector < int>> &rooms, vector< bool > &vis)
+    void dfs(int i, vector<vector < int>> &rooms, vector< bool > &vis)
+    {
+        vis[i] = true;
+        for (auto nbr: rooms[i])
         {
-            vis[i] = true;
-            for (auto nbr: rooms[i])
+            if (!vis[nbr])
             {
-                if (!vis[nbr])
-                {
-                    dfs(nbr, rooms, vis);
-                }
+                dfs(nbr, rooms, vis);
             }
         }
-    bool canVisitAllRooms(vector<vector < int>> &rooms)
+    }
+    bool canVisitAllRooms(vector<vector<int>> &rooms)
     {
         int n = rooms.size();
         vector<bool> vis(n, false);
