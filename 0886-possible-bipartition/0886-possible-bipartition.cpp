@@ -20,7 +20,6 @@ class Solution
                 adj[v].push_back(u);
             }
 
-           	// print adjacency list (comment out before submitting)
             // for (int i = 0; i <= N; ++i)
             // {
             //     cout << "adj[" << i << "]: ";
