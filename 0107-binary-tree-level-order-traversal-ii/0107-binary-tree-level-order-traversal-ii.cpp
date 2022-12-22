@@ -11,31 +11,23 @@
  */
 class Solution {
 public:
-    // Level order traversal from bottom-up
+    // print level order traversal (recursively)
+    vector<vector<int>> ans;
+    void helper(TreeNode* node, int level = 0)
+    {
+        if(node == nullptr) return;
+        if(level == ans.size()) ans.push_back(vector<int> ());
+
+        ans[level].push_back(node->val);
+
+        helper(node->left, level + 1);
+        helper(node->right, level + 1);
+    }
     vector<vector<int>> levelOrderBottom(TreeNode *root)
     {
-        vector<vector < int>> answer;
-        if (!root) return answer;
-        queue<TreeNode*> q;	
-        q.push(root);	
-        while (!q.empty())	
-        {
-            int size = q.size(); //storing queue size for inside loop
-            vector<int> row;	// nodes in a level
-            while (size--)
-            {
-                TreeNode *curr = q.front();
-                q.pop();
-
-                row.push_back(curr->val);	
-
-                if (curr->left) q.push(curr->left);	
-                if (curr->right) q.push(curr->right);	
-            }
-            answer.push_back(row);	
-        }
-        // print2dVector(answer);
-        reverse(answer.begin(), answer.end());
-        return answer;
+        helper(root);
+        // print2dVector(ans);
+        reverse(ans.begin(), ans.end());
+        return ans;
     }
 };
