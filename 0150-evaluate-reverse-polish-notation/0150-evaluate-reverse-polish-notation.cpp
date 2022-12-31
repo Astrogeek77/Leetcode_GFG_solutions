@@ -10,7 +10,9 @@ class Solution
     {
         stack<string> st;
         string ff, ss;
+        // if a single char input is given and its not a operator, return its int version
         if (tokens.size() == 1 and !isop(tokens[0])) return stoi(tokens[0]);
+        
         for (auto i = 0; i < tokens.size(); i++)
         {
             while (i < tokens.size() and !isop(tokens[i]))
@@ -31,7 +33,7 @@ class Solution
             }
 
             if (tokens[i] == "+") st.push(to_string(stoll(ff) + stoll(ss)));
-            else if (tokens[i] == "*") st.push(to_string(stoll(ff) *stoll(ss)));
+            else if (tokens[i] == "*") st.push(to_string(stoll(ff) * stoll(ss)));
             else if (tokens[i] == "-") st.push(to_string(stoll(ff) - stoll(ss)));
             else if (tokens[i] == "/") st.push(to_string(stoll(ff) / stoll(ss)));
         }
