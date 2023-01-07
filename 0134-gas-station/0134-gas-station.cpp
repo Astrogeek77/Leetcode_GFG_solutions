@@ -8,21 +8,26 @@ class Solution
 
     int gasCost(vector<int> &gas, vector<int> &cost)
     {
-        int remaining = 0, prev_remaining = 0, candidate = 0;
+        // track current remaining gas / fuel, 
+        // previous remaining gas / fuel, 
+        // and the candidate station
+        
+        int remainingFuel = 0, prev_remainingFuel = 0, candidateStation = 0;
 
         for (int i = 0; i < gas.size(); i++)
         {
-            remaining += gas[i] - cost[i];
-            if (remaining < 0)
+            remainingFuel += gas[i] - cost[i];
+            if (remainingFuel < 0)
             {
-                candidate = i + 1;
-                prev_remaining += remaining;
-                remaining = 0;
+                candidateStation = i + 1;
+                prev_remainingFuel += remainingFuel;
+                remainingFuel = 0;
             }
         }
-        if (candidate == gas.size() or remaining + prev_remaining < 0)
+        
+        if (candidateStation == gas.size() or remainingFuel + prev_remainingFuel < 0)
             return -1;
-        else 
-            return candidate;
+        
+        return candidateStation;
     }
 };
