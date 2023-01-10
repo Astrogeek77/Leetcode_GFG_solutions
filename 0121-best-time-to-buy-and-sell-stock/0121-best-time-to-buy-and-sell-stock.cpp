@@ -9,9 +9,12 @@ class Solution
         for (auto x: a)
         {
             // for every element check for the minimum cost price
-            min_CP = min(min_CP, x);
+            // min_CP = min(min_CP, x);
+            if(x < min_CP) min_CP = x;
             // calculate profit and maximize it
-            maxProfit = max(maxProfit, x - min_CP);
+            // maxProfit = max(maxProfit, x - min_CP);
+            int newProfit = x - min_CP;
+            if(newProfit > maxProfit) maxProfit = newProfit;
         }
         return maxProfit;
     }
