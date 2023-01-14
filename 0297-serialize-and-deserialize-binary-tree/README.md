@@ -7,15 +7,15 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2020/09/15/serdeser.jpg" style="width: 442px; height: 324px;">
-<pre><strong>Input:</strong> root = [1,2,3,null,null,4,5]
+<pre style="position: relative;"><strong>Input:</strong> root = [1,2,3,null,null,4,5]
 <strong>Output:</strong> [1,2,3,null,null,4,5]
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre><strong>Input:</strong> root = []
+<pre style="position: relative;"><strong>Input:</strong> root = []
 <strong>Output:</strong> []
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
