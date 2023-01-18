@@ -7,24 +7,24 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> nums = [1,-2,3,-2]
+<pre style="position: relative;"><strong>Input:</strong> nums = [1,-2,3,-2]
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> Subarray [3] has maximum sum 3.
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre><strong>Input:</strong> nums = [5,-3,5]
+<pre style="position: relative;"><strong>Input:</strong> nums = [5,-3,5]
 <strong>Output:</strong> 10
 <strong>Explanation:</strong> Subarray [5,5] has maximum sum 5 + 5 = 10.
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre><strong>Input:</strong> nums = [-3,-2,-3]
+<pre style="position: relative;"><strong>Input:</strong> nums = [-3,-2,-3]
 <strong>Output:</strong> -2
 <strong>Explanation:</strong> Subarray [-2] has maximum sum -2.
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
