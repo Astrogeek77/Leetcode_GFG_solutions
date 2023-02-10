@@ -5,17 +5,17 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2019/05/03/1336_ex1.JPG" style="width: 185px; height: 87px;">
-<pre><strong>Input:</strong> grid = [[1,0,1],[0,0,0],[1,0,1]]
+<pre style="position: relative;"><strong>Input:</strong> grid = [[1,0,1],[0,0,0],[1,0,1]]
 <strong>Output:</strong> 2
 <strong>Explanation:</strong> The cell (1, 1) is as far as possible from all the land with distance 2.
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2019/05/03/1336_ex2.JPG" style="width: 184px; height: 87px;">
-<pre><strong>Input:</strong> grid = [[1,0,0],[0,0,0],[0,0,0]]
+<pre style="position: relative;"><strong>Input:</strong> grid = [[1,0,0],[0,0,0],[0,0,0]]
 <strong>Output:</strong> 4
 <strong>Explanation:</strong> The cell (2, 2) is as far as possible from all the land with distance 4.
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
