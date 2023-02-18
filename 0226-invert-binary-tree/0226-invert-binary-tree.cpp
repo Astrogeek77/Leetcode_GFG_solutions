@@ -9,7 +9,14 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+class Solution 
+{
+    void swapLRNodes(TreeNode* node)
+    {
+        TreeNode* temp = node->left;
+        node->left = node->right;
+        node->right = temp;
+    }
     public:
         TreeNode* invertTree(TreeNode* root) 
         {
@@ -21,9 +28,7 @@ class Solution {
             root->right = invertTree(root->right);
 
             // swap the childs
-            TreeNode* temp = root->right;
-            root->right = root->left;
-            root->left = temp;
+            swapLRNodes(root);
 
             return root;
         }
