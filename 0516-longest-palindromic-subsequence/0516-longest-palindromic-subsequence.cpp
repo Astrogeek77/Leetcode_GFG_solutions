@@ -8,8 +8,10 @@ class Solution
 
         int ans;
 
-        if (s[i] == t[j]) ans = 1 + helper(s, t, i - 1, j - 1, dp);
-        else ans = max(helper(s, t, i - 1, j, dp), helper(s, t, i, j - 1, dp));
+        if (s[i] == t[j]) 
+            ans = 1 + helper(s, t, i - 1, j - 1, dp);
+        else 
+            ans = max(helper(s, t, i - 1, j, dp), helper(s, t, i, j - 1, dp));
 
         return dp[i][j] = ans;
     }
