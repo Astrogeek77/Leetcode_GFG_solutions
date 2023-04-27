@@ -1,4 +1,3 @@
-class Solution(object):
-    def bulbSwitch(self, n):
+class Solution:
+    def bulbSwitch(self, n: int) -> int:
         return int(sqrt(n))
-        
