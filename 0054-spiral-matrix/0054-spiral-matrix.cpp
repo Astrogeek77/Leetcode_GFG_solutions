@@ -4,8 +4,10 @@ class Solution
         vector<int> spiralOrder(vector<vector < int>> &matrix)
         {
             if (matrix.size() == 0) return {};
+            
             int left = 0, right = matrix[0].size() - 1;
             int top = 0, bottom = matrix.size() - 1;
+            
             int N = matrix.size() * matrix[0].size();
             vector<int> ans;
 
