@@ -3,7 +3,7 @@ function curry(fn: Function): Function {
         
         if(args.length >= fn.length) return fn(...args)
         else {
-            return (...Nargs) => curried(...args, ...Nargs)
+            return (...Nargs): Function => curried(...args, ...Nargs)
         }
     };
 };
