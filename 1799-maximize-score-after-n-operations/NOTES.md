@@ -1,0 +1,1 @@
+[Notes](https://leetcode.com/problems/maximize-score-after-n-operations/discuss/3521675/Image-Explanation-Fastest-%2B-Complete-Intuition-C%2B%2BJavaPython)
