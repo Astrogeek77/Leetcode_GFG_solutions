@@ -1,25 +1,60 @@
 class Solution
 {
     public:
-    int shortestPathBinaryMatrix(vector<vector<int>>& g, int steps = 0) {
-      queue<pair<int, int>> q;
-      q.push({ 0, 0 });
-      while (!q.empty()) {
-        ++steps;
-        queue<pair<int, int>> q1;
-        while (!q.empty()) {
-          auto c = q.front();
-          q.pop();
-          if (c.first >= 0 && c.second >= 0 && c.first < g.size() && c.second < g.size() && !g[c.first][c.second]) {
-            g[c.first][c.second] = 1;
-            if (c.first == g.size() - 1 && c.second == g.size() - 1) return steps;
-            for (auto i = -1; i < 2; ++i)
-              for (auto j = -1; j < 2; ++j)
-                if (i != 0 || j != 0) q1.push({ c.first + i, c.second + j });
-          }
+
+        bool isValid(vector<vector < int>> &grid, int i, int j, int n, vector< vector< bool>> &visited)
+        {
+
+            return (i >= 0 and i < n and j >= 0 and j < n and grid[i][j] == 0 and!visited[i][j]);
         }
-        swap(q, q1);
-      }
-      return -1;
+
+    int shortestPathBinaryMatrix(vector<vector < int>> &grid)
+    {
+
+        int n = grid.size();
+        vector<vector < bool>> visited(n, vector<bool> (n, false));
+        queue<pair<int, int>> q;
+        int ans = 0;
+        int nodesPushed;
+
+        if (grid[0][0] == 0)
+        {
+            q.push({ 0,
+                0 });
+            visited[0][0] = true;
+        }
+
+        while (!q.empty())
+        {
+
+            nodesPushed = q.size();
+            ans++;
+
+            for (int cnt = 0; cnt < nodesPushed; cnt++)
+            {
+
+                pair<int, int> frontNode = q.front();
+                q.pop();
+
+                int i = frontNode.first, j = frontNode.second;
+
+                if (i == n - 1 and j == n - 1) return ans;
+
+                for (int k = i - 1; k <= i + 1; k++)
+                {
+                    for (int l = j - 1; l <= j + 1; l++)
+                    {
+                        if (isValid(grid, k, l, n, visited))
+                        {
+                            q.push({ k,
+                                l });
+                            visited[k][l] = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return -1;
     }
 };
