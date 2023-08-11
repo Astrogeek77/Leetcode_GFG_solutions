@@ -9,27 +9,27 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> amount = 5, coins = [1,2,5]
+<pre><strong>Input:</strong> amount = 5, coins = [1,2,5]
 <strong>Output:</strong> 4
 <strong>Explanation:</strong> there are four ways to make up the amount:
 5=5
 5=2+2+1
 5=2+1+1+1
 5=1+1+1+1+1
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> amount = 3, coins = [2]
+<pre><strong>Input:</strong> amount = 3, coins = [2]
 <strong>Output:</strong> 0
 <strong>Explanation:</strong> the amount of 3 cannot be made up just with coins of 2.
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> amount = 10, coins = [10]
+<pre><strong>Input:</strong> amount = 10, coins = [10]
 <strong>Output:</strong> 1
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
